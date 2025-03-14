@@ -1,1 +1,1 @@
-web: vendor/bin/heroku-php-apache2 -p $PORT public/
+web: vendor/bin/heroku-php-nginx public/
