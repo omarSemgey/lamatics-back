@@ -180,8 +180,6 @@ class UserController extends Controller
 
             if(!empty($updateData)) User::findOrFail($id)->update($updateData);
 
-            User::findOrFail($id)->update($validatedData);
-
             DB::commit();
 
             Cache::forget('user_' . $id);
