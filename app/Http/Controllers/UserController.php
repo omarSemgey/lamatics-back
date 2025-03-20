@@ -166,16 +166,16 @@ class UserController extends Controller
 
             $updateData = [];
 
-            if (isset($validated['name'])) {
-                $updateData['name'] = $validated['name'];
+            if (isset($validatedData['name'])) {
+                $updateData['name'] = $validatedData['name'];
             }
 
-            if (isset($validated['email'])) {
-                $updateData['email'] = $validated['email'];
+            if (isset($validatedData['email'])) {
+                $updateData['email'] = $validatedData['email'];
             }
 
-            if (isset($validated['password'])) {
-                $updateData['password'] = Hash::make($validated['password']);
+            if (isset($validatedData['password'])) {
+                $updateData['password'] = Hash::make($validatedData['password']);
             }
 
             if(!empty($updateData)) User::findOrFail($id)->update($updateData);
