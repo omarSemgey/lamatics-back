@@ -14,8 +14,13 @@ RUN apt-get update && \
         curl \
         cron \
         supervisor \
-        nano && \
-    docker-php-ext-install pdo pdo_pgsql zip
+        nano \
+        pkg-config \
+        libssl-dev \
+        libxml2-dev && \
+    docker-php-ext-install pdo pdo_pgsql zip && \
+    pecl install redis && \
+    docker-php-ext-enable redis
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
