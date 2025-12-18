@@ -28,4 +28,6 @@ RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cac
 
 EXPOSE 9000
 
+RUN php artisan migrate --force
+
 CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=9000"]
