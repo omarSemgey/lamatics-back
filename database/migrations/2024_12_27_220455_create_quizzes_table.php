@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('quiz_difficulty')->nullable(false);
 
             $table->index('quiz_title');
-            $table->index('quiz_description(150)');
+            $table->index('quiz_description');
 
             $table->timestamps();
         });
