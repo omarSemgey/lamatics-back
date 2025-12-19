@@ -24,7 +24,7 @@ return new class extends Migration
 
             $table->timestamps();
 
-            $table->string('name')->index();
+            $table->index('name');
         });
     }
 
