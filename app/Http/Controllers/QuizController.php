@@ -68,7 +68,7 @@ class QuizController extends Controller
                 foreach ($questionData['answers'] as $answerData) {
                     $answers[] = new QuizQuestionAnswer([
                         'question_answer_text' => $answerData['question_answer_text'],
-                        'correct_answer' => $answerData['correct_answer'],
+                        'correct_answer' => filter_var($answerData['correct_answer'], FILTER_VALIDATE_BOOLEAN),
                         'question_id' => $question->quiz_question_id,
                     ]);
                 }
