@@ -36,7 +36,7 @@ Route::post('quizzes', [QuizController::class, 'store'])->middleware('EnsureUser
 
 Route::put('quizzes/{quiz}', [QuizController::class, 'update'])->middleware('EnsureUserIsAdmin');
 
-Route::delete('quizzes',[QuizController::class, 'destroy'])->middleware('EnsureUserIsAdmin');
+Route::delete('quizzes/{quiz}',[QuizController::class, 'destroy'])->middleware('EnsureUserIsAdmin');
 
 // User quiz submission
 
