@@ -250,7 +250,7 @@ class QuizController extends Controller
                     
                     $file = $questionData['question_image'];
                     $path = $file->store('images', 'public');
-                    $question->update(['question_image' => Storage::url($path)]);
+                    $question->update(['question_image' => asset(Storage::url($path))]);
                 }
 
                 foreach ($questionData['answers'] as $answerData) {
