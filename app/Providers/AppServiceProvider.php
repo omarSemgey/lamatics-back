@@ -9,6 +9,7 @@ use App\Observers\QuizObserver;
 use App\Observers\UserObserver;
 use App\Observers\UserQuizSubmissionObserver;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Artisan;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,5 +29,10 @@ class AppServiceProvider extends ServiceProvider
         User::observe(UserObserver::class);
         Quiz::observe(QuizObserver::class);
         UserQuizSubmission::observe(UserQuizSubmissionObserver::class);
+
+        Artisan::call('db:seed', [
+                '--class' => 'AdminUserSeeder',
+                '--force' => true,
+        ]);
     }
 }
