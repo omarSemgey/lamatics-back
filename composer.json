@@ -1,16 +1,15 @@
 {
-    "name": "laravel/laravel",
+    "name": "lamatics/lamatics",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
-    "license": "MIT",
+    "description": "E-quiz Platform.",
     "require": {
         "php": "^8.2",
         "heroku/heroku-buildpack-php": "^262.0",
         "laravel/framework": "^11.9",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
-        "tymon/jwt-auth": "^2.1"
+        "tymon/jwt-auth": "^2.1",
+        "predis/predis": "^2.2"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
