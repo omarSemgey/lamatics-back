@@ -52,7 +52,7 @@ class AuthController extends Controller
             config('app.env') === 'production',
             true, 
             false,
-            '*'
+            'None'
         )
         ->cookie(
             'refresh_token', 
