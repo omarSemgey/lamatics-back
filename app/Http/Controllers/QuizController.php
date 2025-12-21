@@ -83,7 +83,8 @@ class QuizController extends Controller
 
             return response()->json([
                 'message' => 'Quiz created successfully'
-            ], 201);
+            ], 201)
+            ->header('Cache-Control', 'no-store, no-cache, must-revalidate');
 
         } catch (\Exception $e) {
             DB::rollBack();
@@ -276,7 +277,8 @@ class QuizController extends Controller
             return response()->json([
                 'message' => 'Quiz updated successfully',
                 'quiz' => $quiz,
-            ], 200);
+            ], 200)
+            ->header('Cache-Control', 'no-store, no-cache, must-revalidate');
     
         } catch (\Exception $e) {
             DB::rollBack();
@@ -315,7 +317,9 @@ class QuizController extends Controller
             return response()->json([
                 'status' => 'success',
                 'message' => 'quiz deleted successfully'
-            ]);
+            ])
+            ->header('Cache-Control', 'no-store, no-cache, must-revalidate');
+
         }catch(\Throwable $err){
             DB::rollBack();
             return response()->json([

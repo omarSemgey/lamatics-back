@@ -2,11 +2,11 @@
 
 return [
 
-    'paths' => ['api/*', 'api/auth/*', 'counts/*', 'client-logs'],
+    'paths' => ['*'],
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['https://lamatics.onrender.com'], 
+    'allowed_origins' => ['https://lamatics.onrender.com', 'http://localhost:5173'], 
 
     'allowed_origins_patterns' => [],
 

@@ -52,7 +52,7 @@ class AuthController extends Controller
             config('app.env') === 'production',
             true, 
             false,
-            'None'
+            config('app.env') === 'production' ? 'None' : 'Lax',
         )
         ->cookie(
             'refresh_token', 
@@ -63,7 +63,7 @@ class AuthController extends Controller
             config('app.env') === 'production',
             true,
             false,
-            'None'
+            config('app.env') === 'production' ? 'None' : 'Lax',
         );
     }
 
@@ -138,7 +138,7 @@ class AuthController extends Controller
                 config('app.env') === 'production',
                 true, 
                 false,
-                'None'
+                config('app.env') === 'production' ? 'None' : 'Lax',
             )
             ->cookie(
                 'refresh_token', 
@@ -149,7 +149,7 @@ class AuthController extends Controller
                 config('app.env') === 'production',
                 true,
                 false,
-                'None'
+                config('app.env') === 'production' ? 'None' : 'Lax',
             );
         } catch (\Throwable $err) {
             DB::rollBack();
@@ -220,7 +220,7 @@ class AuthController extends Controller
                 config('app.env') === 'production',
                 true, 
                 false,
-                'None'
+                config('app.env') === 'production' ? 'None' : 'Lax',
             )
             ->cookie(
                 'refresh_token', 
@@ -231,7 +231,7 @@ class AuthController extends Controller
                 config('app.env') === 'production',
                 true,
                 false,
-                'None'
+                config('app.env') === 'production' ? 'None' : 'Lax',
             );
 
         } catch (\Exception $e) {

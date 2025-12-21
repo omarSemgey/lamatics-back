@@ -20,16 +20,32 @@ class UserController extends Controller
     public function index()
     {
         $page = request()->get('page', 1);
+        $perPage = 10;
         $cacheKey = 'users_page_' . $page;
-        $minutes = 60; 
+        $minutes = 60;
 
+        // Cache only raw data, including user submissions count
         $users = Cache::tags(['users_list'])->remember($cacheKey, $minutes * 60, function () {
-            return User::withCount('userSubmissions')->paginate(10);
+            return User::select('user_id', 'name', 'email', 'role')
+                ->withCount('userSubmissions')
+                ->orderBy('name')
+                ->get()
+                ->toArray(); // convert to array for stable caching
         });
-    
+
+        // Manual pagination
+        $total = count($users);
+        $usersPaginated = array_slice($users, ($page - 1) * $perPage, $perPage);
+
         return response()->json([
             'status' => 'success',
-            'users' => $users,
+            'users' => [
+                'data' => $usersPaginated,
+                'current_page' => (int) $page,
+                'per_page' => $perPage,
+                'total' => $total,
+                'last_page' => ceil($total / $perPage),
+            ],
         ]);
     }
 
