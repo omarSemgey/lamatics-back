@@ -30,9 +30,9 @@ class AppServiceProvider extends ServiceProvider
         Quiz::observe(QuizObserver::class);
         UserQuizSubmission::observe(UserQuizSubmissionObserver::class);
 
-        Artisan::call('db:seed', [
-                '--class' => 'AdminUserSeeder',
-                '--force' => true,
-        ]);
+        // Artisan::call('db:seed', [
+        //         '--class' => 'AdminUserSeeder',
+        //         '--force' => true,
+        // ]);
     }
 }
