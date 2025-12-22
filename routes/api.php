@@ -26,7 +26,7 @@ Route::delete('users/{user}',[UserController::class, 'destroy'])->middleware('En
 
 // Quizzes
 
-Route::get('quizzes',[QuizController::class, 'index'])->middleware('EnsureUserIsAuthenticated');
+Route::get('quizzes',[QuizController::class, 'index']);
 
 Route::get('quizzes/search',[QuizController::class, 'search'])->middleware('EnsureUserIsAuthenticated');
 
