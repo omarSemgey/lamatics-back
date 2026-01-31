@@ -35,6 +35,8 @@ Lamatics however solves this by:
 
 - React
 
+- Axios 
+
 ### Backend
 
 - Laravel (RESTful API)
